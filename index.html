@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>نظام إنتاج السلطات والمقبلات</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>الإنتاج</h1>
+
+    <!-- Tabs for Salad and Mezze -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="salads">السلطات</button>
+      <button class="tab-btn" data-tab="mezze">المقبلات</button>
+    </div>
+
+    <!-- Salads Category -->
+    <div id="salads" class="category active">
+      <h3>اختر من السلطات</h3>
+      <div class="items-grid">
+        <button class="item-btn" data-name="أنوار">أنوار</button>
+        <button class="item-btn" data-name="باربكيو">باربكيو</button>
+        <button class="item-btn" data-name="سيزر">سيزر</button>
+        <button class="item-btn" data-name="فتوش">فتوش</button>
+        <button class="item-btn" data-name="فتة حمص">فتة حمص</button>
+        <button class="item-btn" data-name="فتة باذنجان">فتة باذنجان</button>
+        <button class="item-btn" data-name="جرجير">جرجير</button>
+        <button class="item-btn" data-name="تونة">تونة</button>
+        <button class="item-btn" data-name="فواكه فريش">فواكه فريش</button>
+      </div>
+    </div>
+
+    <!-- Mezze Category -->
+    <div id="mezze" class="category">
+      <h3>اختر من المقبلات</h3>
+      <div class="items-grid">
+        <button class="item-btn" data-name="حمص">حمص</button>
+        <button class="item-btn" data-name="حمص بالنعناع">حمص بالنعناع</button>
+        <button class="item-btn" data-name="حمص بالشوندر">حمص بالشوندر</button>
+        <button class="item-btn" data-name="بيتنجانية">بيتنجانية</button>
+        <button class="item-btn" data-name="لهانة حامضة">لهانة حامضة</button>
+        <button class="item-btn" data-name="لهانة مايونيز">لهانة مايونيز</button>
+        <button class="item-btn" data-name="لهانة مع الجرجير">لهانة مع الجرجير</button>
+        <button class="item-btn" data-name="زيتون متبل">زيتون متبل</button>
+        <button class="item-btn" data-name="خيار متبل بالليمون">خيار متبل بالليمون</button>
+        <button class="item-btn" data-name="خيار متبل">خيار متبل</button>
+        <button class="item-btn" data-name="بيروتيه">بيروتيه</button>
+        <button class="item-btn" data-name="سبكتي">سبكتي</button>
+        <button class="item-btn" data-name="معكرونة">معكرونة</button>
+        <button class="item-btn" data-name="معكرونة بالخضار">معكرونة بالخضار</button>
+        <button class="item-btn" data-name="معكرونة سبايسي">معكرونة سبايسي</button>
+        <button class="item-btn" data-name="دجاج بالمايونيز">دجاج بالمايونيز</button>
+        <button class="item-btn" data-name="روسيه">روسيه</button>
+        <button class="item-btn" data-name="مغربيه">مغربيه</button>
+        <button class="item-btn" data-name="تبوله">تبوله</button>
+        <button class="item-btn" data-name="تبوله لبنانيه">تبوله لبنانيه</button>
+        <button class="item-btn" data-name="بيتنجانيه لبنانيه">بيتنجانيه لبنانيه</button>
+        <button class="item-btn" data-name="لسان">لسان</button>
+        <button class="item-btn" data-name="ستربس">ستربس</button>
+        <button class="item-btn" data-name="خس باللبن والثوم">خس باللبن والثوم</button>
+        <button class="item-btn" data-name="جاجيك عراقي">جاجيك عراقي</button>
+        <button class="item-btn" data-name="جاجيك فلسطيني">جاجيك فلسطيني</button>
+        <button class="item-btn" data-name="فواكه فروتي">فواكه فروتي</button>
+      </div>
+    </div>
+
+    <!-- Selected Items Summary -->
+    <div class="summary">
+      <h3>عدد الأصناف: <span id="count">0</span></h3>
+      <div id="selected-items"></div>
+    </div>
+
+    <!-- Main Actions -->
+    <div class="actions">
+      <button id="save-btn">حفظ الطلب</button>
+      <button id="print-btn">طباعة</button>
+      <button id="whatsapp-btn">واتساب</button>
+      <button id="clear-btn">مسح الكل</button>
+    </div>
+
+    <!-- Modal for Quantity Selection -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h4>تحديد الكمية</h4>
+        <p><strong id="modal-item-name"></strong></p>
+        <label>العدد:</label>
+        <input type="number" id="quantity-input" min="1" value="1" />
+
+        <label>وحدة القياس:</label>
+        <select id="unit-select">
+                           <option value="    ">    </option>
+          <option value=" 5"> 5</option>
+
+          <option value=" 10"> 10</option>
+          <option value=" 15"> 15</option>
+          <option value=" 20"> 20</option>
+        </select>
+
+        <div class="modal-buttons">
+          <button id="confirm-btn">تأكيد</button>
+          <button id="cancel-btn">إلغاء</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
